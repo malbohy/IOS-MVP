@@ -10,13 +10,20 @@
 import UIKit
 import GithubKit
 
-final class FavoriteViewController: UIViewController {
+protocol FavoriteView: class {
+    func reloadData()
+    func showRepository(with repository: Repository)
+}
+
+final class FavoriteViewController: UIViewController, FavoriteView {
     @IBOutlet private(set) weak var tableView: UITableView!
     
-    let favoriteModel: FavoriteModel
+    let presenter: FavoritePresenter
+    let dataSource: FavoriteViewDataSource
     
-    init(favoriteModel: FavoriteModel) {
-        self.favoriteModel = favoriteModel
+    init(presenter: FavoritePresenter) {
+        self.presenter = presenter
+        self.dataSource = FavoriteViewDataSource(presenter: presenter)
         super.init(nibName: FavoriteViewController.className, bundle: nil)
     }
     
@@ -29,51 +36,17 @@ final class FavoriteViewController: UIViewController {
         
         title = "On Memory Favorite"
         
-        favoriteModel.delegate = self
-        configure(with: tableView)
+        presenter.view = self
+        dataSource.configure(with: tableView)
     }
     
-    private func configure(with tableView: UITableView) {
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.register(RepositoryViewCell.self)
-    }
-    
-    private func showRepository(with repository: Repository) {
-        let vc = RepositoryViewController(repository: repository, favoriteModel: favoriteModel)
+    func showRepository(with repository: Repository) {
+        let repositoryPresenter = RepositoryViewPresenter(repository: repository, favoritePresenter: presenter)
+        let vc = RepositoryViewController(presenter: repositoryPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-extension FavoriteViewController: FavoriteModelDelegate {
-    func favoriteDidChange() {
-        tableView.reloadData()
-    }
-}
-
-extension FavoriteViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteModel.favorites.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(RepositoryViewCell.self, for: indexPath)
-        cell.configure(with: favoriteModel.favorites[indexPath.row])
-        return cell
+    func reloadData() {
+        tableView?.reloadData()
     }
 }
-
-extension FavoriteViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        let repository = favoriteModel.favorites[indexPath.row]
-        showRepository(with: repository)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return RepositoryViewCell.calculateHeight(with: favoriteModel.favorites[indexPath.row], and: tableView)
-    }
-}
-

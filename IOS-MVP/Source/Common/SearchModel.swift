@@ -68,12 +68,16 @@ final class SearchModel {
         if query.isEmpty || task != nil { return }
         if let pageInfo = pageInfo, !pageInfo.hasNextPage || pageInfo.endCursor == nil { return }
         isFetchingUsers = true
+        
         let request = SearchUserRequest(query: query, after: pageInfo?.endCursor)
         self.task = ApiSession.shared.send(request) { [weak self] in
             guard let me = self else {
                 return
             }
             
+            print("\n\n\n\n\\n\n\n")
+            print("done \($0) ")
+            print("\n\n\n\n\\n\n\n")
             switch $0 {
             case .success(let value):
                 me.pageInfo = value.pageInfo
@@ -86,6 +90,8 @@ final class SearchModel {
                     let message = "\"Github Personal Access Token\" is Required.\n Please set it in ApiSession.extension.swift!"
                     let errorMessage = ErrorMessage(title: title, message: message)
                     me.delegate?.searchModel(me, didRecieve: errorMessage)
+                }else{
+                    print(error)
                 }
             }
             
