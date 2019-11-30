@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-IOS-MVP/Pods-IOS-MVP-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GithubKit/GithubKit.framework
+${BUILT_PRODUCTS_DIR}/NoticeObserveKit/NoticeObserveKit.framework
+${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
+${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework

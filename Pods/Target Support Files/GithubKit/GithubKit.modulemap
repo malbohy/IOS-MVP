@@ -1,0 +1,6 @@
+framework module GithubKit {
+  umbrella header "GithubKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

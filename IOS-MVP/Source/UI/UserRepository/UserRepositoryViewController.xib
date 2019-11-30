@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserRepositoryViewController" customModule="MVC_IOS" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="ISL-Lc-Clc" id="lGb-d4-acA"/>
+                <outlet property="totalCountLabel" destination="smv-Lh-Xlb" id="Bff-ZW-4tX"/>
+                <outlet property="view" destination="4LB-eh-jae" id="WII-V6-WiR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4LB-eh-jae">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ISL-Lc-Clc">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrx-Vk-m53">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smv-Lh-Xlb">
+                            <rect key="frame" x="12" y="12.5" width="390" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmF-pm-Efh">
+                            <rect key="frame" x="0.0" y="43.5" width="414" height="0.5"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="J2e-gS-Gid"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="smv-Lh-Xlb" firstAttribute="leading" secondItem="Rrx-Vk-m53" secondAttribute="leading" constant="12" id="Jkt-tN-uqB"/>
+                        <constraint firstAttribute="trailing" secondItem="smv-Lh-Xlb" secondAttribute="trailing" constant="12" id="Qen-jF-NNH"/>
+                        <constraint firstItem="smv-Lh-Xlb" firstAttribute="centerY" secondItem="Rrx-Vk-m53" secondAttribute="centerY" id="YD3-Mp-FO5"/>
+                        <constraint firstAttribute="height" constant="44" id="meW-5V-yKr"/>
+                        <constraint firstAttribute="trailing" secondItem="SmF-pm-Efh" secondAttribute="trailing" id="qEG-ET-lSf"/>
+                        <constraint firstAttribute="bottom" secondItem="SmF-pm-Efh" secondAttribute="bottom" id="qPD-pA-GM7"/>
+                        <constraint firstItem="SmF-pm-Efh" firstAttribute="leading" secondItem="Rrx-Vk-m53" secondAttribute="leading" id="zQu-PT-dd5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ISL-Lc-Clc" secondAttribute="bottom" id="6oT-ML-Jto"/>
+                <constraint firstAttribute="trailing" secondItem="Rrx-Vk-m53" secondAttribute="trailing" id="J9t-mV-SV7"/>
+                <constraint firstItem="Rrx-Vk-m53" firstAttribute="leading" secondItem="4LB-eh-jae" secondAttribute="leading" id="Qd2-g5-50E"/>
+                <constraint firstItem="ISL-Lc-Clc" firstAttribute="top" secondItem="Rrx-Vk-m53" secondAttribute="bottom" id="RGk-IM-9L0"/>
+                <constraint firstItem="Rrx-Vk-m53" firstAttribute="top" secondItem="Eb7-4x-8vn" secondAttribute="top" id="Xo5-qL-qyi"/>
+                <constraint firstItem="ISL-Lc-Clc" firstAttribute="leading" secondItem="4LB-eh-jae" secondAttribute="leading" id="lW6-A5-F01"/>
+                <constraint firstAttribute="trailing" secondItem="ISL-Lc-Clc" secondAttribute="trailing" id="tvk-Vs-tJ5"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Eb7-4x-8vn"/>
+            <point key="canvasLocation" x="29.600000000000001" y="-22.03898050974513"/>
+        </view>
+    </objects>
+</document>
